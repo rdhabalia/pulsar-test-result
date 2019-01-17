@@ -1,0 +1,425 @@
+01:30:57.436 [main] INFO - Starting benchmark with config: {
+  "drivers" : [ "driver-pulsar/pulsar.yaml" ],
+  "workers" : null,
+  "workersFile" : null,
+  "workloads" : [ "custom/48-Partitions-400K-publish-0.5KB-payload.yaml" ]
+}
+01:30:57.497 [main] INFO - Workloads: {
+  "48-Partitions-400K-publish-0.5KB-payload" : {
+    "name" : "1 producer / 1 consumers on 1 topic",
+    "topics" : 1,
+    "partitionsPerTopic" : 18,
+    "keyDistributor" : "NO_KEY",
+    "messageSize" : 512,
+    "payloadFile" : "payload/payload-0.5KB.data",
+    "subscriptionsPerTopic" : 0,
+    "producersPerTopic" : 1,
+    "consumerPerSubscription" : 0,
+    "producerRate" : 400000,
+    "consumerBacklogSizeGB" : 0,
+    "testDurationMinutes" : 1440
+  }
+}
+01:30:57.603 [main] INFO - --------------- WORKLOAD : 1 producer / 1 consumers on 1 topic --- DRIVER : Pulsar---------------
+01:30:57.774 [main] INFO - Driver: {
+  "name" : "Pulsar",
+  "driverClass" : "io.openmessaging.benchmark.driver.pulsar.PulsarBenchmarkDriver"
+}
+01:30:57.791 [main] INFO - Pulsar driver configuration: {
+  "client" : {
+    "serviceUrl" : "pulsar://perf1-bookie1.messaging.bf2.yahoo.com:6650",
+    "httpUrl" : "http://perf1-bookie1.messaging.bf2.yahoo.com:8080",
+    "ioThreads" : 8,
+    "connectionsPerBroker" : 8,
+    "namespacePrefix" : "benchmark/local/ns",
+    "topicType" : "persistent",
+    "namespaceBundles" : 16,
+    "persistence" : {
+      "ensembleSize" : 3,
+      "writeQuorum" : 3,
+      "ackQuorum" : 2,
+      "deduplicationEnabled" : false
+    },
+    "tlsAllowInsecureConnection" : false,
+    "tlsEnableHostnameVerification" : false,
+    "tlsTrustCertsFilePath" : null,
+    "authentication" : {
+      "plugin" : null,
+      "data" : null
+    }
+  },
+  "producer" : {
+    "batchingEnabled" : true,
+    "blockIfQueueFull" : true,
+    "batchingMaxPublishDelayMs" : 1,
+    "pendingQueueSize" : 10000
+  }
+}
+01:30:58.101 [main] INFO - Created Pulsar client for service URL pulsar://perf1-bookie1.messaging.bf2.yahoo.com:6650
+01:30:58.383 [main] INFO - Created Pulsar admin client for HTTP URL http://perf1-bookie1.messaging.bf2.yahoo.com:8080
+01:30:58.630 [main] INFO - Created Pulsar tenant benchmark with allowed cluster local
+01:30:58.694 [main] INFO - Created Pulsar namespace benchmark/local/ns--DNTuCc with 16 bundles
+01:30:58.719 [main] INFO - Applied persistence configuration for namespace benchmark/local/benchmark/local/ns--DNTuCc: {
+  "ensembleSize" : 3,
+  "writeQuorum" : 3,
+  "ackQuorum" : 2,
+  "deduplicationEnabled" : false
+}
+01:30:59.774 [main] INFO - Created 1 topics in 1051.863628 ms
+01:30:59.775 [main] INFO - Created 1 topics in 1052.722826 ms
+01:30:59.788 [main] INFO - Created 0 consumers in 12.105736 ms
+01:30:59.788 [main] INFO - Created 0 consumers in 12.277386 ms
+01:30:59.908 [pulsar-client-io-2-2] INFO - [[id: 0x3bf6d7a1, L:/10.250.21.216:47634 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]] Connected to server
+01:31:00.066 [pulsar-client-io-2-4] INFO - [[id: 0x4c050363, L:/10.250.21.216:47636 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]] Connected to server
+01:31:00.069 [pulsar-client-io-2-5] INFO - [[id: 0xfafc0480, L:/10.250.21.216:47638 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]] Connected to server
+01:31:00.073 [pulsar-client-io-2-3] INFO - [[id: 0x15711c8a, L:/10.250.21.216:47640 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]] Connected to server
+01:31:00.073 [pulsar-client-io-2-4] INFO - [[id: 0xc4fbebf6, L:/10.250.21.216:47642 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]] Connected to server
+01:31:00.074 [pulsar-client-io-2-5] INFO - [[id: 0x1a4bad38, L:/10.250.21.216:47644 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]] Connected to server
+01:31:00.077 [pulsar-client-io-2-7] INFO - [[id: 0xa6fc683d, L:/10.250.21.216:47646 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]] Connected to server
+01:31:00.078 [pulsar-client-io-2-1] INFO - [[id: 0xd521e7c6, L:/10.250.21.216:47648 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]] Connected to server
+01:31:00.082 [pulsar-client-io-2-5] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-13] [null] Creating producer on cnx [id: 0x1a4bad38, L:/10.250.21.216:47644 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]
+01:31:00.083 [pulsar-client-io-2-1] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-17] [null] Creating producer on cnx [id: 0x1a4bad38, L:/10.250.21.216:47644 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]
+01:31:00.091 [pulsar-client-io-2-5] INFO - [[id: 0x2c2b3955, L:/10.250.21.216:57652 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]] Connected to server
+01:31:00.097 [pulsar-client-io-2-4] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-7] [null] Creating producer on cnx [id: 0x15711c8a, L:/10.250.21.216:47640 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]
+01:31:00.097 [pulsar-client-io-2-5] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-13] [perf-bf2-14-107] Created producer on cnx [id: 0x1a4bad38, L:/10.250.21.216:47644 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]
+01:31:00.097 [pulsar-client-io-2-4] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-3] [null] Creating producer on cnx [id: 0x4c050363, L:/10.250.21.216:47636 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]
+01:31:00.100 [pulsar-client-io-2-8] INFO - [[id: 0xeed06a8a, L:/10.250.21.216:57654 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]] Connected to server
+01:31:00.104 [pulsar-client-io-2-3] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-7] [perf-bf2-14-109] Created producer on cnx [id: 0x15711c8a, L:/10.250.21.216:47640 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]
+01:31:00.105 [pulsar-client-io-2-4] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-3] [perf-bf2-14-110] Created producer on cnx [id: 0x4c050363, L:/10.250.21.216:47636 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]
+01:31:00.105 [pulsar-client-io-2-2] INFO - [[id: 0x81c12baa, L:/10.250.21.216:57656 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]] Connected to server
+01:31:00.106 [pulsar-client-io-2-2] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-9] [null] Creating producer on cnx [id: 0x81c12baa, L:/10.250.21.216:57656 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.115 [pulsar-client-io-2-2] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-9] [perf-bf2-20-68] Created producer on cnx [id: 0x81c12baa, L:/10.250.21.216:57656 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.118 [pulsar-client-io-2-6] INFO - [[id: 0x1966a92d, L:/10.250.21.216:46090 - R:perf1-bookie5.messaging.bf2.yahoo.com/10.249.233.121:6650]] Connected to server
+01:31:00.122 [pulsar-client-io-2-3] INFO - [[id: 0x476c4d8a, L:/10.250.21.216:57660 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]] Connected to server
+01:31:00.123 [pulsar-client-io-2-8] INFO - [[id: 0x8237a5be, L:/10.250.21.216:43230 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]] Connected to server
+01:31:00.123 [pulsar-client-io-2-4] INFO - [[id: 0x904a0393, L:/10.250.21.216:43234 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]] Connected to server
+01:31:00.123 [pulsar-client-io-2-5] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-5] [null] Creating producer on cnx [id: 0x81c12baa, L:/10.250.21.216:57656 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.124 [pulsar-client-io-2-5] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-17] [perf-bf2-14-108] Created producer on cnx [id: 0x1a4bad38, L:/10.250.21.216:47644 - R:perf1-bookie1.messaging.bf2.yahoo.com/10.249.233.252:6650]
+01:31:00.124 [pulsar-client-io-2-3] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-4] [null] Creating producer on cnx [id: 0xeed06a8a, L:/10.250.21.216:57654 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.125 [pulsar-client-io-2-6] INFO - [[id: 0x150d3db2, L:/10.250.21.216:57668 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]] Connected to server
+01:31:00.125 [pulsar-client-io-2-8] INFO - [[id: 0xc3572376, L:/10.250.21.216:46102 - R:perf1-bookie5.messaging.bf2.yahoo.com/10.249.233.121:6650]] Connected to server
+01:31:00.126 [pulsar-client-io-2-5] INFO - [[id: 0x132152b6, L:/10.250.21.216:32804 - R:perf1-bookie3.messaging.bf2.yahoo.com/10.249.233.57:6650]] Connected to server
+01:31:00.126 [pulsar-client-io-2-5] INFO - [[id: 0x44b716dc, L:/10.250.21.216:46104 - R:perf1-bookie5.messaging.bf2.yahoo.com/10.249.233.121:6650]] Connected to server
+01:31:00.127 [pulsar-client-io-2-8] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-15] [null] Creating producer on cnx [id: 0xc3572376, L:/10.250.21.216:46102 - R:perf1-bookie5.messaging.bf2.yahoo.com/10.249.233.121:6650]
+01:31:00.127 [pulsar-client-io-2-6] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-8] [null] Creating producer on cnx [id: 0x150d3db2, L:/10.250.21.216:57668 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.128 [pulsar-client-io-2-2] INFO - [[id: 0xe39d93c4, L:/10.250.21.216:57674 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]] Connected to server
+01:31:00.129 [pulsar-client-io-2-2] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-1] [null] Creating producer on cnx [id: 0xe39d93c4, L:/10.250.21.216:57674 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.129 [pulsar-client-io-2-2] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-0] [null] Creating producer on cnx [id: 0xe39d93c4, L:/10.250.21.216:57674 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.130 [pulsar-client-io-2-5] INFO - [[id: 0xcdd6cf13, L:/10.250.21.216:32818 - R:perf1-bookie3.messaging.bf2.yahoo.com/10.249.233.57:6650]] Connected to server
+01:31:00.130 [pulsar-client-io-2-6] INFO - [[id: 0xabe0a24d, L:/10.250.21.216:43248 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]] Connected to server
+01:31:00.130 [pulsar-client-io-2-7] INFO - [[id: 0xbfe0f04d, L:/10.250.21.216:46114 - R:perf1-bookie5.messaging.bf2.yahoo.com/10.249.233.121:6650]] Connected to server
+01:31:00.131 [pulsar-client-io-2-6] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-12] [null] Creating producer on cnx [id: 0xabe0a24d, L:/10.250.21.216:43248 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]
+01:31:00.133 [pulsar-client-io-2-2] INFO - [[id: 0xaa220d10, L:/10.250.21.216:32824 - R:perf1-bookie3.messaging.bf2.yahoo.com/10.249.233.57:6650]] Connected to server
+01:31:00.133 [pulsar-client-io-2-3] INFO - [[id: 0xce882c5c, L:/10.250.21.216:32828 - R:perf1-bookie3.messaging.bf2.yahoo.com/10.249.233.57:6650]] Connected to server
+01:31:00.133 [pulsar-client-io-2-7] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-11] [null] Creating producer on cnx [id: 0xbfe0f04d, L:/10.250.21.216:46114 - R:perf1-bookie5.messaging.bf2.yahoo.com/10.249.233.121:6650]
+01:31:00.134 [pulsar-client-io-2-1] INFO - [[id: 0x8339c067, L:/10.250.21.216:43244 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]] Connected to server
+01:31:00.134 [pulsar-client-io-2-2] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-5] [perf-bf2-20-69] Created producer on cnx [id: 0x81c12baa, L:/10.250.21.216:57656 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.134 [pulsar-client-io-2-3] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-14] [null] Creating producer on cnx [id: 0xce882c5c, L:/10.250.21.216:32828 - R:perf1-bookie3.messaging.bf2.yahoo.com/10.249.233.57:6650]
+01:31:00.134 [pulsar-client-io-2-2] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-10] [null] Creating producer on cnx [id: 0xaa220d10, L:/10.250.21.216:32824 - R:perf1-bookie3.messaging.bf2.yahoo.com/10.249.233.57:6650]
+01:31:00.135 [pulsar-client-io-2-1] INFO - [[id: 0x45a0f8d7, L:/10.250.21.216:43254 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]] Connected to server
+01:31:00.136 [pulsar-client-io-2-8] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-4] [perf-bf2-20-70] Created producer on cnx [id: 0xeed06a8a, L:/10.250.21.216:57654 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.136 [pulsar-client-io-2-1] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-16] [null] Creating producer on cnx [id: 0x45a0f8d7, L:/10.250.21.216:43254 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]
+01:31:00.138 [pulsar-client-io-2-6] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-8] [perf-bf2-20-71] Created producer on cnx [id: 0x150d3db2, L:/10.250.21.216:57668 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.138 [pulsar-client-io-2-1] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-6] [null] Creating producer on cnx [id: 0x904a0393, L:/10.250.21.216:43234 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]
+01:31:00.139 [pulsar-client-io-2-1] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-2] [null] Creating producer on cnx [id: 0x904a0393, L:/10.250.21.216:43234 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]
+01:31:00.141 [pulsar-client-io-2-8] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-15] [perf-bf2-12-82] Created producer on cnx [id: 0xc3572376, L:/10.250.21.216:46102 - R:perf1-bookie5.messaging.bf2.yahoo.com/10.249.233.121:6650]
+01:31:00.141 [pulsar-client-io-2-2] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-0] [perf-bf2-20-73] Created producer on cnx [id: 0xe39d93c4, L:/10.250.21.216:57674 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.141 [pulsar-client-io-2-2] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-1] [perf-bf2-20-72] Created producer on cnx [id: 0xe39d93c4, L:/10.250.21.216:57674 - R:perf1-bookie4.messaging.bf2.yahoo.com/10.249.233.51:6650]
+01:31:00.143 [pulsar-client-io-2-7] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-11] [perf-bf2-12-83] Created producer on cnx [id: 0xbfe0f04d, L:/10.250.21.216:46114 - R:perf1-bookie5.messaging.bf2.yahoo.com/10.249.233.121:6650]
+01:31:00.143 [pulsar-client-io-2-6] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-12] [perf-bf2-16-60] Created producer on cnx [id: 0xabe0a24d, L:/10.250.21.216:43248 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]
+01:31:00.147 [pulsar-client-io-2-1] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-16] [perf-bf2-16-61] Created producer on cnx [id: 0x45a0f8d7, L:/10.250.21.216:43254 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]
+01:31:00.148 [pulsar-client-io-2-3] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-14] [perf-bf2-18-92] Created producer on cnx [id: 0xce882c5c, L:/10.250.21.216:32828 - R:perf1-bookie3.messaging.bf2.yahoo.com/10.249.233.57:6650]
+01:31:00.149 [pulsar-client-io-2-4] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-2] [perf-bf2-16-63] Created producer on cnx [id: 0x904a0393, L:/10.250.21.216:43234 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]
+01:31:00.149 [pulsar-client-io-2-2] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-10] [perf-bf2-18-93] Created producer on cnx [id: 0xaa220d10, L:/10.250.21.216:32824 - R:perf1-bookie3.messaging.bf2.yahoo.com/10.249.233.57:6650]
+01:31:00.150 [pulsar-client-io-2-4] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000-partition-6] [perf-bf2-16-62] Created producer on cnx [id: 0x904a0393, L:/10.250.21.216:43234 - R:perf1-bookie2.messaging.bf2.yahoo.com/10.249.229.235:6650]
+01:31:00.150 [pulsar-client-io-2-4] INFO - [persistent://benchmark/local/ns--DNTuCc/test-G94_9KY-0000] Created partitioned producer
+01:31:00.150 [main] INFO - Created 1 producers in 361.694515 ms
+01:31:00.150 [main] INFO - Created 1 producers in 361.851816 ms
+01:31:00.151 [main] INFO - Waiting for consumers to be ready
+01:31:00.165 [main] INFO - All consumers are ready
+01:31:00.178 [main] INFO - ----- Starting warm-up traffic ------
+01:31:00.180 [pulsar-timer-5-1] INFO - SSE4.2 CRC32C provider initialized
+01:31:10.316 [main] INFO - Pub rate 424033.7 msg/s / 207.0 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 69.8 - Max: 237.7
+01:31:20.434 [main] INFO - Pub rate 399950.7 msg/s / 195.3 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  9.1 - 50%:  2.2 - 99%: 167.1 - 99.9%: 216.2 - Max: 262.8
+01:31:30.518 [main] INFO - Pub rate 400920.6 msg/s / 195.8 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  6.2 - 50%:  2.1 - 99%: 157.3 - 99.9%: 234.8 - Max: 267.4
+01:31:40.597 [main] INFO - Pub rate 400128.3 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.5 - 50%:  2.0 - 99%:  4.0 - 99.9%: 118.0 - Max: 187.6
+01:31:50.684 [main] INFO - Pub rate 399887.2 msg/s / 195.3 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  5.4 - 50%:  2.0 - 99%: 85.3 - 99.9%: 128.8 - Max: 146.7
+01:32:00.767 [main] INFO - Pub rate 400916.4 msg/s / 195.8 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.4 - Max: 20.9
+01:32:00.842 [main] INFO - ----- Aggregated Pub Latency (ms) avg:  4.6 - 50%:  2.0 - 95%:  3.9 - 99%: 94.8 - 99.9%: 208.7 - 99.99%: 255.9 - Max: 267.4
+01:32:00.982 [main] INFO - ----- Starting benchmark traffic ------
+01:32:11.010 [main] INFO - Pub rate 408703.6 msg/s / 199.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 77.2 - Max: 119.9
+01:32:21.084 [main] INFO - Pub rate 400294.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.7 - 50%:  2.0 - 99%: 16.9 - 99.9%: 118.8 - Max: 166.4
+01:32:31.158 [main] INFO - Pub rate 400428.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  4.0 - 99.9%: 78.2 - Max: 163.2
+01:32:41.234 [main] INFO - Pub rate 397669.4 msg/s / 194.2 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  5.6 - 50%:  2.1 - 99%: 133.7 - 99.9%: 204.8 - Max: 284.8
+01:32:51.314 [main] INFO - Pub rate 402829.4 msg/s / 196.7 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.6 - 50%:  1.8 - 99%:  3.9 - 99.9%: 124.2 - Max: 142.2
+01:33:01.384 [main] INFO - Pub rate 400389.1 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max: 20.2
+01:33:11.454 [main] INFO - Pub rate 400353.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  5.6 - Max: 69.7
+01:33:21.524 [main] INFO - Pub rate 400310.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.6
+01:33:31.588 [main] INFO - Pub rate 400552.5 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.2 - Max:  8.1
+01:33:41.653 [main] INFO - Pub rate 400284.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.0
+01:33:51.723 [main] INFO - Pub rate 400140.6 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max: 25.6
+01:34:01.805 [main] INFO - Pub rate 400541.6 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.9
+01:34:11.873 [main] INFO - Pub rate 400445.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  4.0 - 99.9%: 35.0 - Max: 84.4
+01:34:21.941 [main] INFO - Pub rate 400319.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.7
+01:34:32.011 [main] INFO - Pub rate 400345.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  9.4
+01:34:42.082 [main] INFO - Pub rate 400380.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.5
+01:34:52.159 [main] INFO - Pub rate 400065.7 msg/s / 195.3 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  9.6
+01:35:02.224 [main] INFO - Pub rate 400796.5 msg/s / 195.7 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  5.9
+01:35:12.303 [main] INFO - Pub rate 399995.4 msg/s / 195.3 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.7 - 50%:  2.1 - 99%:  4.2 - 99.9%: 101.6 - Max: 184.7
+01:35:22.385 [main] INFO - Pub rate 400627.9 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.4 - Max: 113.5
+01:35:32.453 [main] INFO - Pub rate 400345.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  7.9
+01:35:42.519 [main] INFO - Pub rate 400336.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max: 15.7
+01:35:52.583 [main] INFO - Pub rate 400424.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.2
+01:36:02.646 [main] INFO - Pub rate 400364.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.8
+01:36:12.714 [main] INFO - Pub rate 400352.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.5 - Max: 44.2
+01:36:22.782 [main] INFO - Pub rate 400330.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.3
+01:36:32.852 [main] INFO - Pub rate 400314.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 69.0 - Max: 100.0
+01:36:42.922 [main] INFO - Pub rate 400427.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.4 - Max: 25.1
+01:36:52.990 [main] INFO - Pub rate 400383.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.9
+01:37:03.058 [main] INFO - Pub rate 400303.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.6
+01:37:13.131 [main] INFO - Pub rate 400376.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.6 - 50%:  2.1 - 99%:  4.1 - 99.9%: 94.0 - Max: 154.6
+01:37:23.196 [main] INFO - Pub rate 400589.9 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  7.9
+01:37:33.262 [main] INFO - Pub rate 400253.0 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.2
+01:37:43.328 [main] INFO - Pub rate 400414.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.5
+01:37:53.390 [main] INFO - Pub rate 400458.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.2 - Max:  8.4
+01:38:03.467 [main] INFO - Pub rate 397810.4 msg/s / 194.2 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.8 - 99.9%: 19.7 - Max: 186.6
+01:38:13.571 [main] INFO - Pub rate 402794.8 msg/s / 196.7 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  3.9 - 99.9%: 65.8 - Max: 135.5
+01:38:23.641 [main] INFO - Pub rate 400367.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%: 12.2 - Max: 87.7
+01:38:33.706 [main] INFO - Pub rate 400506.6 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max:  6.2
+01:38:43.778 [main] INFO - Pub rate 400190.7 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.6
+01:38:53.850 [main] INFO - Pub rate 400357.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  1.9 - 99%:  3.8 - 99.9%: 39.0 - Max: 91.7
+01:39:03.922 [main] INFO - Pub rate 400496.4 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  3.9 - 99.9%: 86.6 - Max: 155.8
+01:39:13.999 [main] INFO - Pub rate 400216.8 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.1 - 99%:  4.0 - 99.9%: 36.5 - Max: 135.2
+01:39:24.071 [main] INFO - Pub rate 400474.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.6
+01:39:34.141 [main] INFO - Pub rate 400413.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.5
+01:39:44.211 [main] INFO - Pub rate 400372.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max: 10.0
+01:39:54.283 [main] INFO - Pub rate 400388.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  1.9 - 99%:  3.8 - 99.9%: 87.3 - Max: 118.9
+01:40:04.353 [main] INFO - Pub rate 400423.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.9
+01:40:14.421 [main] INFO - Pub rate 400237.5 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 17.6 - Max: 70.1
+01:40:24.490 [main] INFO - Pub rate 400430.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.3 - Max:  9.3
+01:40:34.558 [main] INFO - Pub rate 400368.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.4
+01:40:44.623 [main] INFO - Pub rate 400442.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.3
+01:40:54.693 [main] INFO - Pub rate 400323.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.5
+01:41:04.762 [main] INFO - Pub rate 400322.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.8 - 99.9%: 14.0 - Max: 113.5
+01:41:14.831 [main] INFO - Pub rate 400380.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max:  8.2
+01:41:24.899 [main] INFO - Pub rate 400334.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  7.2
+01:41:34.963 [main] INFO - Pub rate 400447.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.4
+01:41:45.032 [main] INFO - Pub rate 400332.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  4.0 - 99.9%: 15.8 - Max: 54.4
+01:41:55.102 [main] INFO - Pub rate 400390.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  7.8
+01:42:05.169 [main] INFO - Pub rate 400331.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.4 - Max: 45.5
+01:42:15.239 [main] INFO - Pub rate 400405.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 49.2 - Max: 159.4
+01:42:25.310 [main] INFO - Pub rate 400331.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.9
+01:42:35.378 [main] INFO - Pub rate 400309.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  9.1
+01:42:45.443 [main] INFO - Pub rate 400457.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max: 14.7
+01:42:55.509 [main] INFO - Pub rate 400406.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  7.7 - Max: 36.0
+01:43:05.574 [main] INFO - Pub rate 400368.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.2 - Max:  8.6
+01:43:15.643 [main] INFO - Pub rate 400174.3 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 33.8 - Max: 81.8
+01:43:25.710 [main] INFO - Pub rate 400528.8 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.2 - Max: 13.7
+01:43:35.771 [main] INFO - Pub rate 400497.6 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  9.2
+01:43:45.839 [main] INFO - Pub rate 400161.1 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  6.5
+01:43:55.908 [main] INFO - Pub rate 400360.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.0
+01:44:05.977 [main] INFO - Pub rate 400344.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.2
+01:44:16.047 [main] INFO - Pub rate 400468.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.5 - 50%:  2.0 - 99%:  3.9 - 99.9%: 104.6 - Max: 192.5
+01:44:26.119 [main] INFO - Pub rate 400333.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.0
+01:44:36.188 [main] INFO - Pub rate 400374.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  8.1
+01:44:46.257 [main] INFO - Pub rate 400302.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.4
+01:44:56.321 [main] INFO - Pub rate 400523.1 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.7
+01:45:06.391 [main] INFO - Pub rate 400278.9 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  3.9 - 99.9%: 78.7 - Max: 149.3
+01:45:16.457 [main] INFO - Pub rate 400591.9 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 43.6 - Max: 94.2
+01:45:26.523 [main] INFO - Pub rate 400288.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.0 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.4
+01:45:36.591 [main] INFO - Pub rate 400248.3 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  7.7
+01:45:46.658 [main] INFO - Pub rate 400380.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.0
+01:45:56.725 [main] INFO - Pub rate 400450.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 52.5 - Max: 101.0
+01:46:06.793 [main] INFO - Pub rate 400354.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.3 - Max: 48.9
+01:46:16.861 [main] INFO - Pub rate 400298.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  7.6
+01:46:26.925 [main] INFO - Pub rate 400509.5 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.4
+01:46:36.992 [main] INFO - Pub rate 400279.5 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  9.0
+01:46:47.059 [main] INFO - Pub rate 400288.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.4
+01:46:57.122 [main] INFO - Pub rate 400529.0 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.2 - Max:  8.6
+01:47:07.190 [main] INFO - Pub rate 400247.4 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  6.3 - Max: 17.8
+01:47:17.257 [main] INFO - Pub rate 400467.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 48.5 - Max: 153.0
+01:47:27.328 [main] INFO - Pub rate 400206.8 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.7
+01:47:37.394 [main] INFO - Pub rate 400519.3 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.4
+01:47:47.460 [main] INFO - Pub rate 400359.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.8
+01:47:57.529 [main] INFO - Pub rate 400332.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.8
+01:48:07.605 [main] INFO - Pub rate 400142.8 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%: 27.0 - Max: 106.3
+01:48:17.676 [main] INFO - Pub rate 400547.9 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.0
+01:48:27.741 [main] INFO - Pub rate 400456.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.4
+01:48:37.806 [main] INFO - Pub rate 400389.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  8.1
+01:48:47.873 [main] INFO - Pub rate 400446.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.2 - Max:  7.8
+01:48:57.940 [main] INFO - Pub rate 400298.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max: 10.0
+01:49:08.004 [main] INFO - Pub rate 400480.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.3 - Max:  5.9
+01:49:18.073 [main] INFO - Pub rate 400294.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  3.9 - 99.9%: 78.6 - Max: 115.2
+01:49:28.141 [main] INFO - Pub rate 400467.1 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.8 - 99.9%:  4.4 - Max: 17.9
+01:49:38.209 [main] INFO - Pub rate 400209.6 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.3 - Max:  9.0
+01:49:48.275 [main] INFO - Pub rate 400431.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  9.5
+01:49:58.343 [main] INFO - Pub rate 400447.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.1 - 99%:  4.0 - 99.9%: 69.0 - Max: 104.0
+01:50:08.413 [main] INFO - Pub rate 400279.4 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 43.6 - Max: 129.4
+01:50:18.481 [main] INFO - Pub rate 400419.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.9
+01:50:28.547 [main] INFO - Pub rate 400294.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.9
+01:50:38.612 [main] INFO - Pub rate 400579.4 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  6.9
+01:50:48.681 [main] INFO - Pub rate 400166.6 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.0 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  7.4
+01:50:58.748 [main] INFO - Pub rate 400463.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  9.2 - Max: 16.9
+01:51:08.819 [main] INFO - Pub rate 400217.7 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  6.9 - Max: 11.3
+01:51:18.890 [main] INFO - Pub rate 400441.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.4
+01:51:28.953 [main] INFO - Pub rate 400469.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.0 - 50%:  1.9 - 99%:  3.6 - 99.9%:  4.0 - Max:  6.1
+01:51:39.020 [main] INFO - Pub rate 400212.5 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.8
+01:51:49.081 [main] INFO - Pub rate 400545.7 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.4
+01:51:59.148 [main] INFO - Pub rate 400154.9 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  7.4
+01:52:09.213 [main] INFO - Pub rate 400499.0 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.8 - Max: 39.3
+01:52:19.282 [main] INFO - Pub rate 400291.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%: 45.9 - Max: 71.7
+01:52:29.351 [main] INFO - Pub rate 400357.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  7.2 - Max: 59.3
+01:52:39.419 [main] INFO - Pub rate 400331.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.7
+01:52:49.487 [main] INFO - Pub rate 400363.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.9
+01:52:59.552 [main] INFO - Pub rate 400468.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.6
+01:53:09.619 [main] INFO - Pub rate 400285.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max: 25.5
+01:53:19.688 [main] INFO - Pub rate 400343.1 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max:  8.5
+01:53:29.753 [main] INFO - Pub rate 400507.7 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  9.0
+01:53:39.819 [main] INFO - Pub rate 400279.1 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.1
+01:53:49.887 [main] INFO - Pub rate 400342.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.0
+01:53:59.950 [main] INFO - Pub rate 400369.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.8 - 99.9%: 55.0 - Max: 89.1
+01:54:10.019 [main] INFO - Pub rate 400444.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  7.3 - Max: 48.4
+01:54:20.086 [main] INFO - Pub rate 400306.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%: 21.2 - Max: 50.2
+01:54:30.152 [main] INFO - Pub rate 400420.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  6.5
+01:54:40.216 [main] INFO - Pub rate 400369.1 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  8.0
+01:54:50.284 [main] INFO - Pub rate 400395.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%: 46.2 - Max: 102.3
+01:55:00.352 [main] INFO - Pub rate 400430.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.0
+01:55:10.422 [main] INFO - Pub rate 400258.4 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.5 - 50%:  2.0 - 99%:  4.0 - 99.9%: 92.3 - Max: 134.1
+01:55:20.494 [main] INFO - Pub rate 400550.9 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.7 - 99.9%:  4.1 - Max:  7.3
+01:55:30.561 [main] INFO - Pub rate 400222.6 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.0
+01:55:40.625 [main] INFO - Pub rate 400443.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  8.7
+01:55:50.697 [main] INFO - Pub rate 400150.1 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  9.2
+01:56:00.763 [main] INFO - Pub rate 400630.7 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  5.6 - Max: 49.3
+01:56:10.833 [main] INFO - Pub rate 400302.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  6.2
+01:56:20.904 [main] INFO - Pub rate 400329.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max: 27.3
+01:56:30.973 [main] INFO - Pub rate 400368.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  7.9
+01:56:41.042 [main] INFO - Pub rate 400347.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.8
+01:56:51.111 [main] INFO - Pub rate 400349.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.0 - Max:  6.6
+01:57:01.174 [main] INFO - Pub rate 400536.1 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.7
+01:57:11.244 [main] INFO - Pub rate 400253.2 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  8.2 - Max: 59.3
+01:57:21.317 [main] INFO - Pub rate 400269.6 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.8 - 99.9%: 52.1 - Max: 75.9
+01:57:31.389 [main] INFO - Pub rate 400297.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  9.5
+01:57:41.459 [main] INFO - Pub rate 400434.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  5.7
+01:57:51.529 [main] INFO - Pub rate 400364.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  9.3
+01:58:01.598 [main] INFO - Pub rate 400404.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.8
+01:58:11.666 [main] INFO - Pub rate 400359.1 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  4.0 - 99.9%: 57.4 - Max: 105.9
+01:58:21.731 [main] INFO - Pub rate 400543.8 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.7 - 99.9%:  4.0 - Max:  8.6
+01:58:31.801 [main] INFO - Pub rate 400073.5 msg/s / 195.3 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.4
+01:58:41.887 [main] INFO - Pub rate 400438.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  7.6
+01:58:51.956 [main] INFO - Pub rate 400403.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.0 - Max:  9.0
+01:59:02.019 [main] INFO - Pub rate 400584.5 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.9
+01:59:12.084 [main] INFO - Pub rate 400332.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%: 34.5 - Max: 67.4
+01:59:22.154 [main] INFO - Pub rate 400228.6 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.8
+01:59:32.221 [main] INFO - Pub rate 400435.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.8
+01:59:42.290 [main] INFO - Pub rate 400258.4 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  6.4
+01:59:52.355 [main] INFO - Pub rate 400531.7 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max: 13.1
+02:00:02.425 [main] INFO - Pub rate 400287.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.5 - 50%:  2.0 - 99%:  3.9 - 99.9%: 97.6 - Max: 119.4
+02:00:12.503 [main] INFO - Pub rate 400317.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.8 - 99.9%: 31.3 - Max: 161.6
+02:00:22.574 [main] INFO - Pub rate 400429.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  7.9
+02:00:32.642 [main] INFO - Pub rate 400259.9 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.5
+02:00:42.712 [main] INFO - Pub rate 400417.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  8.2
+02:00:52.781 [main] INFO - Pub rate 400375.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.0 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  6.3
+02:01:02.852 [main] INFO - Pub rate 400335.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  6.2 - Max: 21.0
+02:01:12.917 [main] INFO - Pub rate 400539.0 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.1 - 99%:  3.9 - 99.9%: 49.1 - Max: 96.5
+02:01:22.990 [main] INFO - Pub rate 400187.4 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.7 - 99.9%:  4.1 - Max: 11.8
+02:01:33.060 [main] INFO - Pub rate 400332.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  8.1
+02:01:43.124 [main] INFO - Pub rate 400559.7 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  6.2 - Max: 42.5
+02:01:53.193 [main] INFO - Pub rate 400189.8 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  7.5
+02:02:03.262 [main] INFO - Pub rate 400379.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.9
+02:02:13.334 [main] INFO - Pub rate 400332.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 21.3 - Max: 161.1
+02:02:23.408 [main] INFO - Pub rate 400368.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  5.9
+02:02:33.474 [main] INFO - Pub rate 400529.5 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  7.9
+02:02:43.542 [main] INFO - Pub rate 400241.3 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.9
+02:02:53.612 [main] INFO - Pub rate 400401.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  9.2
+02:03:03.686 [main] INFO - Pub rate 400165.1 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.3 - Max: 31.3
+02:03:13.750 [main] INFO - Pub rate 400735.4 msg/s / 195.7 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.1
+02:03:23.821 [main] INFO - Pub rate 400124.3 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.2
+02:03:33.889 [main] INFO - Pub rate 400459.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.4
+02:03:43.957 [main] INFO - Pub rate 400334.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.8
+02:03:54.023 [main] INFO - Pub rate 400492.9 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  9.2
+02:04:04.092 [main] INFO - Pub rate 400355.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.5 - 50%:  2.0 - 99%:  4.2 - 99.9%: 74.4 - Max: 109.2
+02:04:14.163 [main] INFO - Pub rate 400360.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  3.9 - 99.9%: 79.3 - Max: 167.6
+02:04:24.237 [main] INFO - Pub rate 400323.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max:  8.7
+02:04:34.302 [main] INFO - Pub rate 400477.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  5.6
+02:04:44.374 [main] INFO - Pub rate 400153.0 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  6.4
+02:04:54.440 [main] INFO - Pub rate 400528.6 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.5
+02:05:04.505 [main] INFO - Pub rate 400497.6 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  7.1 - Max: 44.6
+02:05:14.575 [main] INFO - Pub rate 400275.2 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  3.9 - 99.9%: 104.6 - Max: 153.9
+02:05:24.641 [main] INFO - Pub rate 400468.1 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  6.2
+02:05:34.708 [main] INFO - Pub rate 400212.4 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.4
+02:05:44.773 [main] INFO - Pub rate 400420.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.9
+02:05:54.840 [main] INFO - Pub rate 400320.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.8 - 99.9%:  4.2 - Max: 39.5
+02:06:04.911 [main] INFO - Pub rate 400366.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max: 26.4
+02:06:14.979 [main] INFO - Pub rate 400380.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.4 - Max: 71.8
+02:06:25.046 [main] INFO - Pub rate 400453.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.2
+02:06:35.120 [main] INFO - Pub rate 400247.8 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.8 - 99.9%: 18.4 - Max: 99.5
+02:06:45.189 [main] INFO - Pub rate 400544.2 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.3
+02:06:55.259 [main] INFO - Pub rate 400246.2 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max: 10.4
+02:07:05.326 [main] INFO - Pub rate 400473.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.4 - Max: 48.7
+02:07:15.400 [main] INFO - Pub rate 400181.9 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 69.9 - Max: 106.4
+02:07:25.470 [main] INFO - Pub rate 400446.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.1
+02:07:35.541 [main] INFO - Pub rate 400345.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  6.6
+02:07:45.607 [main] INFO - Pub rate 400488.6 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.3
+02:07:55.676 [main] INFO - Pub rate 400325.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.8
+02:08:05.743 [main] INFO - Pub rate 400483.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max: 34.8
+02:08:15.812 [main] INFO - Pub rate 400355.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 29.6 - Max: 110.1
+02:08:25.880 [main] INFO - Pub rate 400327.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.9
+02:08:35.951 [main] INFO - Pub rate 400271.4 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.5
+02:08:46.021 [main] INFO - Pub rate 400413.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.8 - 99.9%:  4.3 - Max:  8.1
+02:08:56.095 [main] INFO - Pub rate 400444.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.1
+02:09:06.163 [main] INFO - Pub rate 400322.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%: 23.4 - Max: 56.3
+02:09:16.236 [main] INFO - Pub rate 400400.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.5 - 50%:  2.0 - 99%:  3.9 - 99.9%: 117.5 - Max: 169.5
+02:09:26.309 [main] INFO - Pub rate 400286.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.9
+02:09:36.379 [main] INFO - Pub rate 400374.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.7
+02:09:46.449 [main] INFO - Pub rate 400350.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  9.3
+02:09:56.517 [main] INFO - Pub rate 400451.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.5
+02:10:06.592 [main] INFO - Pub rate 400323.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 66.9 - Max: 97.1
+02:10:16.664 [main] INFO - Pub rate 400401.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.7 - 99.9%:  4.2 - Max:  8.9
+02:10:26.733 [main] INFO - Pub rate 400364.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  9.3
+02:10:36.803 [main] INFO - Pub rate 400350.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.8 - 99.9%:  4.1 - Max:  7.4
+02:10:46.871 [main] INFO - Pub rate 400380.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.2
+02:10:56.941 [main] INFO - Pub rate 400343.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max: 37.5
+02:11:07.014 [main] INFO - Pub rate 400389.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 50.4 - Max: 134.1
+02:11:17.091 [main] INFO - Pub rate 400280.7 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.1 - 99%:  4.0 - 99.9%: 70.5 - Max: 139.0
+02:11:27.162 [main] INFO - Pub rate 400440.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.2
+02:11:37.227 [main] INFO - Pub rate 400536.2 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  9.4
+02:11:47.294 [main] INFO - Pub rate 400296.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  8.0
+02:11:57.363 [main] INFO - Pub rate 400385.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.5
+02:12:07.433 [main] INFO - Pub rate 400309.5 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.4 - Max: 34.5
+02:12:17.503 [main] INFO - Pub rate 400375.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  8.4 - Max: 46.3
+02:12:27.572 [main] INFO - Pub rate 400342.7 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.0 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.0 - Max:  8.3
+02:12:37.641 [main] INFO - Pub rate 400238.5 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  7.9
+02:12:47.711 [main] INFO - Pub rate 400520.5 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max:  8.8
+02:12:57.781 [main] INFO - Pub rate 400308.1 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  8.2
+02:13:07.848 [main] INFO - Pub rate 400515.6 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  4.0 - 99.9%: 92.7 - Max: 203.3
+02:13:17.925 [main] INFO - Pub rate 400287.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.9 - 50%:  2.1 - 99%:  3.9 - 99.9%: 213.1 - Max: 244.8
+02:13:28.001 [main] INFO - Pub rate 400234.2 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.1 - Max:  7.7
+02:13:38.073 [main] INFO - Pub rate 400260.4 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.4
+02:13:48.143 [main] INFO - Pub rate 400565.6 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.5
+02:13:58.213 [main] INFO - Pub rate 400364.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.9
+02:14:08.284 [main] INFO - Pub rate 400404.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%: 22.9 - Max: 109.7
+02:14:18.353 [main] INFO - Pub rate 400424.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.9 - 99.9%:  4.2 - Max:  9.0
+02:14:28.422 [main] INFO - Pub rate 400351.1 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  8.2
+02:14:38.492 [main] INFO - Pub rate 400323.4 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  7.3
+02:14:48.562 [main] INFO - Pub rate 400380.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.8 - 99.9%: 63.2 - Max: 104.8
+02:14:58.633 [main] INFO - Pub rate 400322.6 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.6
+02:15:08.705 [main] INFO - Pub rate 400338.9 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.8 - 99.9%: 100.3 - Max: 153.6
+02:15:18.782 [main] INFO - Pub rate 400302.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.4 - 50%:  2.0 - 99%:  3.9 - 99.9%: 68.8 - Max: 111.9
+02:15:28.859 [main] INFO - Pub rate 400378.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.9
+02:15:38.924 [main] INFO - Pub rate 400531.3 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.1
+02:15:48.986 [main] INFO - Pub rate 400360.8 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  9.0
+02:15:59.061 [main] INFO - Pub rate 399967.2 msg/s / 195.3 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  6.6 - Max: 71.2
+02:16:09.145 [main] INFO - Pub rate 400724.3 msg/s / 195.7 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.6 - 50%:  2.0 - 99%:  4.0 - 99.9%: 111.7 - Max: 174.3
+02:16:19.213 [main] INFO - Pub rate 400374.0 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.9
+02:16:29.273 [main] INFO - Pub rate 400487.8 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.3
+02:16:39.340 [main] INFO - Pub rate 400221.8 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  9.3
+02:16:49.411 [main] INFO - Pub rate 400118.5 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  8.2
+02:16:59.489 [main] INFO - Pub rate 400220.5 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.7
+02:17:09.576 [main] INFO - Pub rate 400769.0 msg/s / 195.7 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.0 - 99%:  3.9 - 99.9%: 55.0 - Max: 176.4
+02:17:19.648 [main] INFO - Pub rate 400242.9 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.3 - Max:  8.3
+02:17:29.712 [main] INFO - Pub rate 400540.3 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.2 - Max:  9.5
+02:17:39.779 [main] INFO - Pub rate 400291.3 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.3 - 50%:  2.1 - 99%:  3.9 - 99.9%:  4.2 - Max:  9.4
+02:17:49.839 [main] INFO - Pub rate 400496.5 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  1.9 - 99%:  3.7 - 99.9%:  4.1 - Max:  6.4
+02:17:59.906 [main] INFO - Pub rate 400101.1 msg/s / 195.4 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  7.8
+02:18:09.974 [main] INFO - Pub rate 400318.2 msg/s / 195.5 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.1 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.3 - Max:  8.6
+02:18:20.058 [main] INFO - Pub rate 400492.1 msg/s / 195.6 Mb/s | Cons rate     0.0 msg/s /  0.0 Mb/s | Backlog:  0.0 K | Pub Latency (ms) avg:  2.2 - 50%:  2.0 - 99%:  3.8 - 99.9%:  4.2 - Max:  6.7
